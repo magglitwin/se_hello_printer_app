@@ -14,3 +14,4 @@ deploy:
   provider: heroku
   app: tranquil-sands-44590
   api_key: ${HEROKU_API_KEY}
+make test_xunit

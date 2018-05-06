@@ -2,3 +2,4 @@
 .cache
 test_results.xml
 .coverage
+chromedriver*

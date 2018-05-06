@@ -10,6 +10,9 @@ lint:
 test:
 	PYTHONPATH=. py.test --verbose -s --ignore=test_ui
 
+test2:
+	PYTHONPATH=. py.test ... -v -m "not uitest"
+
 test_cov:
 	PYTHONPATH=. py.test --verbose -s --cov=. --ignore=test_ui
 

@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test test_ui
 
 deps:
 	pip install -r requirements.txt; \
@@ -8,13 +8,17 @@ lint:
 	flake8 hello_world test
 
 test:
-	PYTHONPATH=. py.test --verbose -s
+	PYTHONPATH=. py.test --verbose -s --ignore=test_ui
 
 test_cov:
-	PYTHONPATH=. py.test --verbose -s --cov=.
+	PYTHONPATH=. py.test --verbose -s --cov=. --ignore=test_ui
 
 test_xunit:
-	PYTHONPATH=. py.test -s --cov=.  --junit-xml=test_results.xml
+	PYTHONPATH=. py.test -s --cov=.  --junit-xml=test_results.xml --ignore=test_ui
+
+test_ui:
+	py.test test_ui/test_ui.py
+
 test_smoke:
 	curl -I --fail 127.0.0.1:5000
 
